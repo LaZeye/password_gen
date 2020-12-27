@@ -31,12 +31,23 @@ def password_generator(total, special):
     
     return password_list
 
+def password_security(total):
+    x = 1
+    for i in range(total):
+        x = x * 73
+    return str(x)
+
+
+
 # Password Paramaters
 total_count = get_character_count()
 special_count = get_special_character_count()
 
 # Generate Password
 password = password_generator(total_count, special_count)
+security = password_security(total_count)
 
-print()
+print("*" * 50)
 print(password)
+print("The likeleyhood of someone guessing your password is 1/" + security +".") 
+print("*" * 50)
